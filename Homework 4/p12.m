@@ -1,0 +1,45 @@
+function [n] = Sample_Time(scale, val)
+    s = abs(scale - val);
+    n = find(s == min(s));
+end
+
+clear all;
+w = -pi:0.01:pi;
+w_long = -2*pi:0.01:2*pi;
+
+dftu = 1./(1 - exp(-1i.*w));
+
+n = Sample_Time(w, 0);
+dftu(n) = dftu(n) + 0.5;
+
+dftc = zeros(1, size(w, 2));
+n1 = Sample_Time(w, -pi/3);
+nr = Sample_Time(w, pi/3);
+dftc(n1) = dftc(n1) + 0.5;
+dftc(nr) = dftc(nr) + 0.5;
+
+dftcu = conv(dftc, dftu);
+
+figure;
+subplot(2, 2, 1);
+plot(w, abs(dftu));
+xlabel('w');
+ylabel('|X(w)|');
+title('x[n] = u[n]');
+
+subplot(2, 2, 3);
+plot(w, angle(dftu));
+xlabel('w');
+ylabel('<X(w)');
+
+subplot(2, 2, 2);
+plot(w_long, abs(dftcu));
+xlabel('w');
+ylabel('|X(w)|');
+title('x[n] = cos(n * pi/3)u[n]');
+
+subplot(2, 2, 4);
+plot(w_long, angle(dftcu));
+xlabel('w');
+ylabel('<X(w)');
+

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\Lab 5 - Spectral Subtraction\main.cpp" />
+    <ClCompile Include="..\..\Shared\dspf.cpp">
+      <Filter>dspf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Shared\kiss_fft130\kiss_fft.c">
+      <Filter>KissFFT</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="KissFFT">
+      <UniqueIdentifier>{551b89dc-b946-4131-8c6a-872d90d0b571}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dspf">
+      <UniqueIdentifier>{4b65d6a0-9e44-44c2-978b-56c2c6c0200f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Shared\dspf.hpp">
+      <Filter>dspf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\kiss_fft130\_kiss_fft_guts.h">
+      <Filter>KissFFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\kiss_fft130\kiss_fft.h">
+      <Filter>KissFFT</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
